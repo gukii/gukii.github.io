@@ -1,18 +1,12 @@
-<ul class="photo-gallery">
-  {% for image in sorted_gallery %}
-    <li>
-      <a href="{{ image.link }}">
-        <img src="{{ image.image_path }}" alt="{{ image.title }}">
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+{% capture imageFolderPath %}{{ page.date | date: "%Y-%m-%d" }}-{{ page.title | slugify }}/images{% endcapture %}
 
-
-{% assign pathname = page.path | remove_last: '.html' %}
-
-{% for image in site.images %}
-     {% if image.extname == 'jpg' %}
-         <img src="{{ file.url }}" />
-     {% endif %}
+{% for file in site.static_files %}
+  {% if file.path contains imageFolderPath %}
+    {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' %}
+    <img src="{{ file.path }}" />
+    {% endif %}
+  {% endif %}
 {% endfor %}
+
+
+
