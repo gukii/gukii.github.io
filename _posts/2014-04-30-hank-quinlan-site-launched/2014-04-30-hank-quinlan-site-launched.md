@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hank Quinlan, Horrible Cop, Launches Site"
+title: "hank-quinlan-site-launched"
 date: 2014-04-30
 ---
 
